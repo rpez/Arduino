@@ -35,16 +35,17 @@ void loop()
   for (int i = 0; i < NUM_LEDS; i++) {
     leds[i] = CRGB::Black;
   }
-  displayLetter('s', offset, 255, 0, 0);
+  displayLetter('h', offset, 255, 0, 0);
   displayLetter('e', offset + 7, 255, 255, 0);
-  displayLetter('n', offset + 14, 255, 0, 255);
-  displayLetter('d', offset + 20, 0, 255, 255);
+  displayLetter('l', offset + 14, 255, 0, 255);
+  displayLetter('l', offset + 21, 0, 255, 255);
+  displayLetter('o', offset + 28, 0, 255, 0);
 
-  displayLetter('n', offset + 34, 0, 0, 255);
-  displayLetter('u', offset + 40, 255, 255, 0);
-  displayLetter('d', offset + 47, 255, 255, 255);
-  displayLetter('e', offset + 54, 0, 255, 0);
-  displayLetter('s', offset + 61, 0, 255, 255);
+  displayLetter('h', offset + 42, 0, 0, 255);
+  displayLetter('u', offset + 49, 255, 255, 0);
+  displayLetter('m', offset + 56, 255, 255, 255);
+  displayLetter('a', offset + 65, 0, 255, 0);
+  displayLetter('n', offset + 72, 0, 255, 255);
   
   // send the 'leds' array out to the actual LED strip
   FastLED.show();  
@@ -54,7 +55,7 @@ void loop()
   // do some periodic updates
   EVERY_N_MILLISECONDS( 1 ) { gHue += 3; }
   EVERY_N_MILLISECONDS( 75 ) {
-    if (offset < -80) {
+    if (offset < -90) {
       offset = 14;
     }
     offset -= 1;
@@ -63,6 +64,24 @@ void loop()
 
 void displayLetter(char letter, int offset, int r, int g, int b) {
   switch(letter) {
+    case 'a':
+      pixel(offset + 1, 0, r, g, b);
+      pixel(offset + 2, 0, r, g, b);
+      pixel(offset + 3, 0, r, g, b);
+      pixel(offset + 4, 0, r, g, b);
+      pixel(offset + 0, 1, r, g, b);
+      pixel(offset + 0, 2, r, g, b);
+      pixel(offset + 1, 2, r, g, b);
+      pixel(offset + 2, 2, r, g, b);
+      pixel(offset + 3, 2, r, g, b);
+      pixel(offset + 4, 2, r, g, b);
+      pixel(offset + 0, 3, r, g, b);
+      pixel(offset + 0, 4, r, g, b);
+      pixel(offset + 5, 1, r, g, b);
+      pixel(offset + 5, 2, r, g, b);
+      pixel(offset + 5, 3, r, g, b);
+      pixel(offset + 5, 4, r, g, b);
+      break;
     case 'e':
       pixel(offset + 0, 0, r, g, b);
       pixel(offset + 1, 0, r, g, b);
@@ -103,6 +122,35 @@ void displayLetter(char letter, int offset, int r, int g, int b) {
       pixel(offset + 5, 2, r, g, b);
       pixel(offset + 5, 3, r, g, b);
       break;
+    case 'h':
+      pixel(offset + 0, 0, r, g, b);
+      pixel(offset + 0, 1, r, g, b);
+      pixel(offset + 0, 2, r, g, b);
+      pixel(offset + 1, 2, r, g, b);
+      pixel(offset + 2, 2, r, g, b);
+      pixel(offset + 3, 2, r, g, b);
+      pixel(offset + 4, 2, r, g, b);
+      pixel(offset + 5, 2, r, g, b);
+      pixel(offset + 0, 3, r, g, b);
+      pixel(offset + 0, 4, r, g, b);
+      pixel(offset + 5, 0, r, g, b);
+      pixel(offset + 5, 1, r, g, b);
+      pixel(offset + 5, 2, r, g, b);
+      pixel(offset + 5, 3, r, g, b);
+      pixel(offset + 5, 4, r, g, b);
+      break;
+    case 'l':
+      pixel(offset + 0, 0, r, g, b);
+      pixel(offset + 0, 1, r, g, b);
+      pixel(offset + 0, 2, r, g, b);
+      pixel(offset + 0, 3, r, g, b);
+      pixel(offset + 0, 4, r, g, b);
+      pixel(offset + 1, 4, r, g, b);
+      pixel(offset + 2, 4, r, g, b);
+      pixel(offset + 3, 4, r, g, b);
+      pixel(offset + 4, 4, r, g, b);
+      pixel(offset + 5, 4, r, g, b);
+      break;
     case 'n':
       pixel(offset + 0, 0, r, g, b);
       pixel(offset + 0, 1, r, g, b);
@@ -117,6 +165,40 @@ void displayLetter(char letter, int offset, int r, int g, int b) {
       pixel(offset + 4, 2, r, g, b);
       pixel(offset + 4, 3, r, g, b);
       pixel(offset + 4, 4, r, g, b);
+      break;
+    case 'm':
+      pixel(offset + 0, 0, r, g, b);
+      pixel(offset + 0, 1, r, g, b);
+      pixel(offset + 0, 2, r, g, b);
+      pixel(offset + 0, 3, r, g, b);
+      pixel(offset + 0, 4, r, g, b);
+      pixel(offset + 1, 1, r, g, b);
+      pixel(offset + 2, 2, r, g, b);
+      pixel(offset + 3, 3, r, g, b);
+      pixel(offset + 4, 2, r, g, b);
+      pixel(offset + 5, 1, r, g, b);
+      pixel(offset + 6, 0, r, g, b);
+      pixel(offset + 6, 0, r, g, b);
+      pixel(offset + 6, 1, r, g, b);
+      pixel(offset + 6, 2, r, g, b);
+      pixel(offset + 6, 3, r, g, b);
+      pixel(offset + 6, 4, r, g, b);
+      break;
+    case 'o':
+      pixel(offset + 1, 0, r, g, b);
+      pixel(offset + 2, 0, r, g, b);
+      pixel(offset + 3, 0, r, g, b);
+      pixel(offset + 4, 0, r, g, b);
+      pixel(offset + 0, 1, r, g, b);
+      pixel(offset + 0, 2, r, g, b);
+      pixel(offset + 0, 3, r, g, b);
+      pixel(offset + 1, 4, r, g, b);
+      pixel(offset + 2, 4, r, g, b);
+      pixel(offset + 3, 4, r, g, b);
+      pixel(offset + 4, 4, r, g, b);
+      pixel(offset + 5, 1, r, g, b);
+      pixel(offset + 5, 2, r, g, b);
+      pixel(offset + 5, 3, r, g, b);
       break;
     case 's':
       pixel(offset + 0, 0, r, g, b);
